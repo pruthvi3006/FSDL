@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5" id="jrc3g6" >
+    <h2 class="mb-4" style="text-align: center;">All Packages</h2>
+
+    <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        <% packages.forEach(pkg => { %>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm h-100">
+
+                    <img src="/images/<%= pkg.image %>" class="card-img-top">
+
+                    <div class="card-body">
+                        <h6><%= pkg.title %></h6>
+                        <p class="text-muted small"><%= pkg.destination %></p>
+                        <p class="fw-bold">₹<%= pkg.price %></p>
+                    </div>
+
+                    <div class="card-footer bg-white">
+                        <a href="/packages/<%= pkg._id %>" class="btn btn-outline-primary w-100">
+                            Details
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

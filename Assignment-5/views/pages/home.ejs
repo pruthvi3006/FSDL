@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5" id="3i7z10">
+    <h1 class="text-center mb-4">Explore Amazing Trips</h1>
+
+    <div class="row">
+        <% packages.forEach(pkg => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+
+                    <img src="/images/<%= pkg.image %>" class="card-img-top">
+
+                    <div class="card-body">
+                        <h5 class="card-title"><%= pkg.title %></h5>
+                        <p class="text-muted"><%= pkg.destination %></p>
+
+                        <p>₹<%= pkg.price %></p>
+
+                        <a href="/packages/<%= pkg._id %>" class="btn btn-primary w-100">
+                            View Details
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,21 @@
+body #sc0x8g {
+    background-color: #f5f7fa;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.btn {
+    border-radius: 8px;
+}

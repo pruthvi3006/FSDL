@@ -1,0 +1,77 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <div class="row">
+
+        <!-- Image -->
+        <div class="col-md-6">
+            <img src="/images/<%= package.image %>" class="img-fluid rounded shadow">
+        </div>
+
+        <!-- Details -->
+        <div class="col-md-6">
+            <h2><%= package.title %></h2>
+            <p class="text-muted"><%= package.destination %></p>
+
+            <h5 class="text-success">₹<%= package.price %></h5>
+
+            <p><strong>Duration:</strong> <%= package.duration %></p>
+            <p><strong>Category:</strong> <%= package.category %></p>
+            <p><strong>Available Seats:</strong> <%= package.availableSeats %></p>
+            <p><strong>Status:</strong> <%= package.status %></p>
+            <p><strong>Rating:</strong> ⭐ <%= package.rating %>/5</p>
+
+            <% if (package.startDate && package.endDate) { %>
+                <p><strong>Dates:</strong> 
+                    <%= package.startDate.toDateString() %> - 
+                    <%= package.endDate.toDateString() %>
+                </p>
+            <% } %>
+
+            <p><%= package.description %></p>
+
+            <a href="/booking?package=<%= package._id %>" class="btn btn-success mt-2">
+                Book Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Itinerary -->
+    <% if (package.itinerary && package.itinerary.length) { %>
+        <div class="mt-5">
+            <h4>Itinerary</h4>
+            <ul class="list-group">
+                <% package.itinerary.forEach(item => { %>
+                    <li class="list-group-item"><%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <!-- Inclusions -->
+    <% if (package.inclusions && package.inclusions.length) { %>
+        <div class="mt-4">
+            <h4>Inclusions</h4>
+            <ul class="list-group">
+                <% package.inclusions.forEach(item => { %>
+                    <li class="list-group-item text-success">✔ <%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <!-- Exclusions -->
+    <% if (package.exclusions && package.exclusions.length) { %>
+        <div class="mt-4">
+            <h4>Exclusions</h4>
+            <ul class="list-group">
+                <% package.exclusions.forEach(item => { %>
+                    <li class="list-group-item text-danger">✘ <%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5" id="05i9b8">
+    <div class="card shadow p-4">
+        <h3 class="mb-4">Book Your Trip</h3>
+
+        <form action="/bookings/book" method="POST">
+
+            <input type="hidden" name="package" value="<%= packageId %>">
+
+            <div class="mb-3">
+                <input class="form-control" type="number" name="numberOfPeople" placeholder="No. of People" required>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="date" name="travelDate" required>
+            </div>
+
+            <button class="btn btn-primary w-100">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

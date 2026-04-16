@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">My Bookings</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Package</th>
+                <th>People</th>
+                <th>Total</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% bookings.forEach(b => { %>
+                <tr>
+                    <td><%= b.package.title %></td>
+                    <td><%= b.numberOfPeople %></td>
+                    <td>₹<%= b.totalAmount %></td>
+                    <td><%= b.travelDate.toDateString() %></td>
+                    <td><%= b.bookingStatus %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>
