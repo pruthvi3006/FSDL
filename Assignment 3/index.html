@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub - Your Premium Tech Store</title>
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-laptop"></i> TechHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginBtn">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </button>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal" id="registerBtn">
+                            <i class="fas fa-user-plus me-2"></i>Register
+                        </button>
+                    </li>
+                    <li class="nav-item ms-2 d-none" id="userProfileNav">
+                        <span class="nav-link" id="userGreeting"></span>
+                        <button class="btn btn-danger btn-sm ms-2" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white text-center d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Welcome to TechHub</h1>
+            <p class="lead mb-4">Discover the Latest Technology at Unbeatable Prices</p>
+            <a href="#products" class="btn btn-lg btn-primary btn-hover">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-4 ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h4>Filter by Category</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="category" id="all" value="all" checked>
+                        <label class="btn btn-outline-primary" for="all">All</label>
+                        
+                        <input type="radio" class="btn-check" name="category" id="laptops" value="laptops">
+                        <label class="btn btn-outline-primary" for="laptops">Laptops</label>
+                        
+                        <input type="radio" class="btn-check" name="category" id="phones" value="phones">
+                        <label class="btn btn-outline-primary" for="phones">Phones</label>
+                        
+                        <input type="radio" class="btn-check" name="category" id="accessories" value="accessories">
+                        <label class="btn btn-outline-primary" for="accessories">Accessories</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Featured Products</h2>
+            <div class="row" id="productsContainer">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="mb-4 fw-bold">About TechHub</h2>
+                    <p class="lead">TechHub is your one-stop destination for premium technology products. We offer the latest gadgets, devices, and accessories from top brands worldwide.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i><strong>100% Authentic Products</strong></li>
+                        <li><i class="fas fa-check text-success me-2"></i><strong>Fast & Free Shipping</strong></li>
+                        <li><i class="fas fa-check text-success me-2"></i><strong>24/7 Customer Support</strong></li>
+                        <li><i class="fas fa-check text-success me-2"></i><strong>Easy Returns & Exchanges</strong></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images (7).jfif" class="img-fluid rounded" alt="About TechHub">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-box p-4">
+                        <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                        <h5>Phone</h5>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-box p-4">
+                        <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                        <h5>Email</h5>
+                        <p>support@techhub.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-box p-4">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                        <h5>Address</h5>
+                        <p>123 Tech Street, Silicon Valley, CA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3"><i class="fas fa-laptop me-2"></i>TechHub</h5>
+                    <p>Your ultimate destination for premium technology products.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Shipping Info</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Follow Us</h5>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center">
+                <p>&copy; 2026 TechHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body p-0 d-flex flex-column">
+            <div id="cartItems" class="flex-grow-1 overflow-auto p-3">
+                <!-- Cart items will be displayed here -->
+                <p class="text-center text-muted mt-5">Your cart is empty</p>
+            </div>
+            <div class="border-top p-3">
+                <div class="d-flex justify-content-between mb-3">
+                    <strong>Total:</strong>
+                    <strong>$<span id="cartTotal">0.00</span></strong>
+                </div>
+                <button class="btn btn-primary w-100 mb-2" id="checkoutBtn">Checkout</button>
+                <button class="btn btn-secondary w-100" data-bs-dismiss="offcanvas">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="fas fa-sign-in-alt me-2"></i>Login to TechHub</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <hr>
+                    <p class="text-center text-muted mb-0">Don't have an account? 
+                        <a href="#" onclick="switchToRegister()" class="text-primary">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fas fa-user-plus me-2"></i>Create New Account</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="registerPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I agree to the Terms and Conditions
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Register</button>
+                    </form>
+                    <hr>
+                    <p class="text-center text-muted mb-0">Already have an account? 
+                        <a href="#" onclick="switchToLogin()" class="text-primary">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
