@@ -52,3 +52,7 @@ This repository contains a collection of web development assignments and mini pr
 ## Purpose
 
 This repository is intended for academic and learning purposes, showcasing practical web development work across multiple assignments and application types.
+
+## Hosted Link
+https://pruthvi3006.github.io/My-Portfolio/
+
